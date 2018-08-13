@@ -126,37 +126,3 @@ describe('validValue', function() {
   })
 
 })
-
-describe('sendFailure', function() {
-  it('works', () => {
-
-    let expectedResult = {
-      error: {
-        name: 'MyError',
-        message: 'MyMessage'
-      }
-    }
-
-    const System = {
-      producerFailedRequests: function (msg) {
-        expect(msg).to.deep.equal(expectedResult)
-        return Promise.resolve(true)
-      },
-      producerError: function (msg) {
-        expect(msg).to.deep.equal(expectedResult)
-        return Promise.resolve(true)
-      },
-    }
-
-    let msg = {
-      error: {
-        name: 'MyError',
-        message: 'MyMessage'
-      }
-    }
-
-    const result = helper.sendFailure(System, msg)
-  })
-
-})
-

@@ -29,3 +29,7 @@ module.exports.fileAvailable = (url) => {
       return Promise.resolve(false)
     })
 }
+
+module.exports.validValue = (value) => {
+  return !(value === null || value === undefined)
+}
